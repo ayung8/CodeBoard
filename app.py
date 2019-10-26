@@ -1,7 +1,15 @@
 from flask import Flask, render_template, request, redirect
+from google.cloud import vision
+from google.cloud.vision import types
+import simplejson as json
+import base64
 
 from sphere_engine import CompilersClientV4
 from sphere_engine.exceptions import SphereEngineException
+
+import logging
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
 
 import time
 
@@ -101,12 +109,18 @@ def compileCode(code, language = "javascript") :
 
 @app.route("/")
 def index():
-
+    return render_template("index.html")
+@app.route("/runOCR", methods=['GET'])
+def runOCR():
+    content = json.loads(request.args['data'])['requests'][0]['image']['content']
+    client = vision.ImageAnnotatorClient()
+    image = types.Image(content = base64.b64decode(content))
+    response = client.text_detection(image=image)
+    print(response.text_annotations[0].description)
     return render_template("index.html")
 
 @app.route("/output", methods=['GET', 'POST'])
-def getOutput() :
-
+def getOutput():
     rawoutput = "NONE"
 
     if request.method == 'POST':
