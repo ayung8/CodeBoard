@@ -81,10 +81,12 @@ def compileCode(code, language = "javascript") :
 
         # Shortcircuit function:
         if client.submissions.get(response.get('id')).get('result').get('status').get('name') == 'runtime error' :
-            return 'Runtime Error'
+            print("ERROR: Runtime Error")
+            return 'ERROR: Runtime Error'
 
         if client.submissions.get(response.get('id')).get('result').get('status').get('name') == 'compilation error' :
-            return 'Compilation Error'
+            print("ERROR: Compilation Error")
+            return 'ERROR: Compilation Error'
 
         responseData = client.submissions.get(response.get('id'))
         print(responseData)  # for test purposes
