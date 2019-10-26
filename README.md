@@ -1,1 +1,1 @@
-# CodeBoard: Run Your Written Code!
+# CodeBoard: Run Your Handwritten Code!
