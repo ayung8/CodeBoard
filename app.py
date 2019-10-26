@@ -116,8 +116,11 @@ def runOCR():
     client = vision.ImageAnnotatorClient()
     image = types.Image(content = base64.b64decode(content))
     response = client.text_detection(image=image)
-    print(response.text_annotations[0].description)
-    return render_template("index.html")
+    if (len(response.text_annotations) < 1):
+        return "no text found"
+    else:
+        #print(response.text_annotations[0].description)
+        return response.text_annotations[0].description
 
 @app.route("/output", methods=['GET', 'POST'])
 def getOutput():
