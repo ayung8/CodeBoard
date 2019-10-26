@@ -78,6 +78,16 @@ def compileCode(code, language = "javascript") :
 
     # Uses submission ID, and checks every x seconds to see if query has been 'accepted' (finished processing)
     while client.submissions.get(response.get('id')).get('result').get('status').get('name') != 'accepted':
+
+        # Shortcircuit function:
+        if client.submissions.get(response.get('id')).get('result').get('status').get('name') == 'runtime error' :
+            print("ERROR: Runtime Error")
+            return 'ERROR: Runtime Error'
+
+        if client.submissions.get(response.get('id')).get('result').get('status').get('name') == 'compilation error' :
+            print("ERROR: Compilation Error")
+            return 'ERROR: Compilation Error'
+
         responseData = client.submissions.get(response.get('id'))
         print(responseData)  # for test purposes
         print("Status is: " + responseData.get('result').get('status').get('name'))
