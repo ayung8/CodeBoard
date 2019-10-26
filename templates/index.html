@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
-	<title>WebcamJS Test Page</title>
+	<title>CodeBoard</title>
 	<style type="text/css">
 		body { font-family: Helvetica, sans-serif; }
 		h2, h3 { margin-top:0; }
@@ -19,7 +19,7 @@
 <body>
 	<div id="results">Your captured image will appear here...</div>
 	
-	<h1>WebcamJS Test Page</h1>
+	<h1>CodeBoard</h1>
 	<h3>Demonstrates setting up camera after a click.</h3>
 	
 	<div id="my_camera"></div>
@@ -29,10 +29,18 @@
 		<input type="button" value="Take Snapshot" onClick="take_snapshot(); $(this).hide().prev().show();" style="display:none">
 	</form>
 
+	<form>
+		<select name="languages">
+			<option value="javascript">Javascript</option>
+			<option value="python" disabled>Python</option>
+			<option value="c" disabled>C</option>
+		</select>
+	</form>
+
 	<form action="/output" method="post">
 		<input type="text" name="codetorun" id="returnedText">
 		<input type="submit">
 	</form>
-	
+
 </body>
 </html>

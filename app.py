@@ -139,7 +139,7 @@ def getOutput():
 
     if request.method == 'POST':
         code = request.form['codetorun']
-        # lang = request.form['language']
+        # lang = request.form['languages']
 
         # Call function to get raw output
         rawoutput = compileCode(code)
