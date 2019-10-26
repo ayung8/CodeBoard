@@ -115,7 +115,7 @@ def runOCR():
     content = json.loads(request.form['data'])['requests'][0]['image']['content']
     client = vision.ImageAnnotatorClient()
     image = types.Image(content = base64.b64decode(content))
-    response = client.text_detection(image=image)
+    response = client.document_text_detection(image=image)
     if (len(response.text_annotations) < 1):
         return "no text found"
     else:
