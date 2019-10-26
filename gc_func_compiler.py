@@ -1,21 +1,11 @@
-from flask import Flask, render_template, request, redirect
-from google.cloud import vision
-from google.cloud.vision import types
-import simplejson as json
-import base64
-
 from sphere_engine import CompilersClientV4
 from sphere_engine.exceptions import SphereEngineException
 
-import logging
-log = logging.getLogger('werkzeug')
-log.setLevel(logging.ERROR)
-
 import time
 
-app = Flask(__name__)
+#respond to an http request
+def hello_world(request):
 
-def compileCode(code, language = "javascript") :
     # define access parameters
     accessToken = '77501c36922866a03b1822b4508a50c6'
     endpoint = 'dd57039c.compilers.sphere-engine.com'
@@ -24,21 +14,17 @@ def compileCode(code, language = "javascript") :
     client = CompilersClientV4(accessToken, endpoint)
 
     # API usage
+    # source = 'function f() {return "hello"; } print(f());' # Javascript
+    # compiler = 112 # Javascript
 
-    if language == "python" :
-        #source = 'print("hello world please work!!!!!")'  # Python
-        source = '' + str(code)
-        compiler = 116  # Python
-
-    elif language == "javascript" :
-        # source = 'function f() {return "hello"; } print(f());' # Javascript
-        source = '' + str(code)
-        compiler = 112  # Javascript
-
-    else :
-        #source = 'function f() {return "hello"; } print(f());' # Javascript
-        source = '' + str(code)
-        compiler = 112 # Javascript
+    # source = 'print("hello world please work!!!!!")' # Python
+    
+    # extract text from json and assign to source
+    request_json = request.get_json()
+    cource = request.args.get('message')
+    
+    
+    compiler = 116 # Python
 
     input = '2017'
 
@@ -77,9 +63,9 @@ def compileCode(code, language = "javascript") :
             print('Submission does not exist')
 
     # Uses submission ID, and checks every x seconds to see if query has been 'accepted' (finished processing)
-    while client.submissions.get(response.get('id')).get('result').get('status').get('name') != 'accepted':
+    while client.submissions.get(response.get('id')).get('result').get('status').get('name') != 'accepted' :
         responseData = client.submissions.get(response.get('id'))
-        print(responseData)  # for test purposes
+        print(responseData) # for test purposes
         print("Status is: " + responseData.get('result').get('status').get('name'))
         time.sleep(5)
 
@@ -97,49 +83,13 @@ def compileCode(code, language = "javascript") :
         elif e.code == 403:
             print('Access to the submission is forbidden')
         elif e.code == 404:
-            print('Non existing resource, error code: ' + str(
-                e.error_code) + ', details available in the message: ' + str(e))
+            print('Non existing resource, error code: ' + str(e.error_code) + ', details available in the message: ' + str(e))
         elif e.code == 400:
             print('Error code: ' + str(e.error_code) + ', details available in the message: ' + str(e))
 
-    print("Output returned is: ")
-    print(rawresponse)
+    #print("Output returned is: ")
+    #print(rawresponse)
 
-    return rawresponse
-
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-@app.route("/runOCR", methods=['POST'])
-def runOCR():
-    content = json.loads(request.form['data'])['requests'][0]['image']['content']
-    client = vision.ImageAnnotatorClient()
-    image = types.Image(content = base64.b64decode(content))
-    response = client.document_text_detection(image=image)
-    if (len(response.text_annotations) < 1):
-        return "no text found"
-    else:
-        #print(response.text_annotations[0].description)
-        return response.text_annotations[0].description
-
-@app.route("/output", methods=['GET', 'POST'])
-def getOutput():
-    rawoutput = "NONE"
-
-    if request.method == 'POST':
-        code = request.form['codetorun']
-        # lang = request.form['language']
-
-        # Call function to get raw output
-        rawoutput = compileCode(code)
-        # rawoutput = compileCode(code, lang)
-
-    return render_template("otherfile.html", rawoutput=rawoutput)
-
-if __name__ == '__main__':
-    app.secret_key = 'super secret key'
-    app.config['SESSION_TYPE'] = 'filesystem'
-
-    #app.run(debug=True, host='0.0.0.0')
-    app.run(host='0.0.0.0')
+    return(rawresponse)
+    #return response to requester
+    
