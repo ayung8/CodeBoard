@@ -29,10 +29,8 @@
 		<input type="button" value="Take Snapshot" onClick="take_snapshot(); $(this).hide().prev().show();" style="display:none">
 	</form>
 
-	<div id="returnedText">Your captured text will appear here...</div>
-
 	<form action="/output" method="post">
-		<input type="text" name="codetorun">
+		<input type="text" name="codetorun" id="returnedText">
 		<input type="submit">
 	</form>
 	

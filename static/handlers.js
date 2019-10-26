@@ -35,6 +35,6 @@ function take_snapshot() {
         ]
     }
     $.post("/runOCR", {"data": JSON.stringify(data)}, function(data) {
-        document.getElementById('returnedText').innerHTML = data;
+        document.getElementById('returnedText').value = data;
     });
 }
