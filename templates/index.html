@@ -38,7 +38,12 @@
 	</form>
 
 	<form action="/output" method="post">
-		<input type="text" name="codetorun" id="returnedText">
+		<select name="lang">
+			<option value="4" >JavaScript</option>
+			<option value="0" disabled>C</option>
+			<option value="5" disabled>Python</option>
+		</select>
+		<textarea name="codetorun" id="returnedText"></textarea>
 		<input type="submit">
 	</form>
 
