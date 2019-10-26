@@ -110,9 +110,9 @@ def compileCode(code, language = "javascript") :
 @app.route("/")
 def index():
     return render_template("index.html")
-@app.route("/runOCR", methods=['GET'])
+@app.route("/runOCR", methods=['POST'])
 def runOCR():
-    content = json.loads(request.args['data'])['requests'][0]['image']['content']
+    content = json.loads(request.form['data'])['requests'][0]['image']['content']
     client = vision.ImageAnnotatorClient()
     image = types.Image(content = base64.b64decode(content))
     response = client.text_detection(image=image)

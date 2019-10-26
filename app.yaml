@@ -1,6 +1,6 @@
 runtime: python
 env: flex
-entrypoint: gunicorn -b :$PORT main:app
+entrypoint: python3 -m flask run
 
 runtime_config:
   python_version: 3
