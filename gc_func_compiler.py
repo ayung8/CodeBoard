@@ -21,7 +21,7 @@ def hello_world(request):
     
     # extract text from json and assign to source
     request_json = request.get_json()
-    cource = request.args.get('message')
+    source = request.args.get('message')
     
     
     compiler = 116 # Python
