@@ -110,6 +110,7 @@ def compileCode(code, language = "javascript") :
 @app.route("/")
 def index():
     return render_template("index.html")
+
 @app.route("/runOCR", methods=['POST'])
 def runOCR():
     content = json.loads(request.form['data'])['requests'][0]['image']['content']
@@ -127,14 +128,14 @@ def getOutput():
     rawoutput = "NONE"
 
     if request.method == 'POST':
-        code = request.form['code']
+        code = request.form['codetorun']
         # lang = request.form['language']
 
         # Call function to get raw output
         rawoutput = compileCode(code)
         # rawoutput = compileCode(code, lang)
 
-    return render_template("file.html", rawoutput=rawoutput)
+    return render_template("otherfile.html", rawoutput=rawoutput)
 
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
