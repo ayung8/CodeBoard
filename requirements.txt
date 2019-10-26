@@ -2,3 +2,4 @@ Flask
 simplejson
 google-cloud-vision
 sphere-engine
+gunicorn
