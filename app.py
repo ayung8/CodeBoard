@@ -30,7 +30,12 @@ def compileCode(code, language = "javascript") :
         source = '' + str(code)
         compiler = 116  # Python
 
-    elif language == "javascript" :
+    elif language == "c" :
+        # source = 'some c Code' # C
+        source = '' + str(code)
+        compiler = 11  # C
+
+    elif language == "javascript":
         # source = 'function f() {return "hello"; } print(f());' # Javascript
         source = '' + str(code)
         compiler = 112  # Javascript
