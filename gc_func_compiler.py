@@ -22,8 +22,10 @@ def hello_world(request):
     # extract text from json and assign to source
     request_json = request.get_json()
     source = request.args.get('message')
-    
-    
+
+    # should already be a valid number
+    request_compiler = request.args.get('compiler')
+
     compiler = 116 # Python
 
     input = '2017'
