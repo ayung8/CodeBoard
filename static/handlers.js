@@ -1,6 +1,6 @@
 Webcam.set({
-    width: 320,
-    height: 240,
+    width: 480,
+    height: 360,
     image_format: 'jpeg',
     jpeg_quality: 90
 });
@@ -34,5 +34,7 @@ function take_snapshot() {
             }
         ]
     }
-    $.post("/runOCR", {"data": JSON.stringify(data)});
+    $.post("/runOCR", {"data": JSON.stringify(data)}, function(data) {
+        document.getElementById('returnedText').innerHTML = data;
+    });
 }
