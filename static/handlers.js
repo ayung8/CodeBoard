@@ -9,7 +9,6 @@ function setup() {
     Webcam.reset();
     Webcam.attach( '#my_camera' );
 }
-
 function take_snapshot() {
     let img = '';
     Webcam.snap( function(data_uri) {

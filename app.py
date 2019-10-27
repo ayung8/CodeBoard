@@ -130,11 +130,11 @@ def index():
 
 @app.route("/index")
 def intro():
-    return render_template("index.html")
+    return render_template("index2.html")
 
 @app.route("/about")
 def about():
-    return render_template("index.html")
+    return render_template("index2.html")
 
 @app.route("/runOCR", methods=['POST'])
 def runOCR():
