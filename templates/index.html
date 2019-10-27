@@ -56,7 +56,7 @@
 <div class="container">
 	<div class="row mt-3 pa-2">
 		<div class="col-4 ml-4">
-			<h5> Take a clear photo of the whiteboard solution you want to be compiled and run</h5>
+			<h5> Take a clear photo of the code you want to run</h5>
 		</div>
 	<div class="col-md-2 offset-md-3">
 		<label>Language:</label>
@@ -84,9 +84,9 @@
 				<form action="/output" method="post" id="codeRunner">
 					<div id=functionInputs>
 						<label>Function Inputs:</label>
-						<input type="text" name="functionInputs" value="" placeholder="e.g. '2, 3'">
+						<input type="text" name="functionInputs" value="" placeholder="e.g. '2, 3'" style="font-family:Lucida Console, Monaco, monospace">
 					</div>
-					<textarea name="codetorun" id="returnedText"></textarea>
+					<textarea name="codetorun" id="returnedText" style="font-family:Lucida Console, Monaco, monospace"></textarea>
 					<input type="submit" class="button offset-md-4">
 				</form>
 			</div>
