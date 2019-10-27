@@ -52,6 +52,6 @@
     }
 
     .navbar-brand{
-        font-weight: bold;
-        color: #6C63FF;
+        font-weight: bold !important;
+        color: #6C63FF !important;
     }
