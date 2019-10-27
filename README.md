@@ -6,8 +6,6 @@
 
 Team Members: Adrian Yung, Jessie Muir, Emily Wang, Vincent Borja
 
-[Github](https://github.com/ayung8/CodeBoard) | Slide Deck
-
 **Summary**  
 
 CodeBoard is a mobile friendly web application built with Python that leverages the latest in AI and Online Automation techniques. CodeBoard allows users to run code wherever it can be found – on paper, on a whiteboard, or even scribbled in sand – simply by taking a picture.
