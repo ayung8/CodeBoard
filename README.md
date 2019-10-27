@@ -2,8 +2,9 @@
 
 Team Members: 
 
-Github | Slide Deck
+[Github](https://github.com/ayung8/CodeBoard) | Slide Deck
 
+**Summary**  
 CodeBoard is a mobile friendly web application built with Python that leverages the latest in AI and Online Automation techniques. CodeBoard allows users to run code wherever it can be found – on paper, on a whiteboard, or even scribbled in sand – simply by taking a picture.
 
 CodeBoard is hosted on Google’s App Engine and utilizes Google’s Cloud Computing as well as Sphere Engine’s Automation Services. The ability to easily parse text from images using Google’s Vision AI paired with Sphere Engine’s online compiler all contributes towards the goal of allowing a seamless conversion from written code to output. 
