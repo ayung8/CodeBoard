@@ -31,7 +31,7 @@ def compileCode(code, language = "javascript") :
         compiler = 116  # Python
 
     elif language == "c" :
-        # source = 'some c Code' # C
+
         source = '' + str(code)
         compiler = 11  # C
 
@@ -45,7 +45,7 @@ def compileCode(code, language = "javascript") :
         source = '' + str(code)
         compiler = 112 # Javascript
 
-    input = '2017'
+    input = 'none'
 
     # Set default value for response
     response = None
@@ -145,12 +145,37 @@ def getOutput():
     if request.method == 'POST':
         code = request.form['codetorun']
         lang = request.form['languages']
+        types = request.form['types']
 
-        # Call function to get raw output
-        #rawoutput = compileCode(code)
+        # Parse input if function option selected
+        if types == 'function' and lang == 'c':
+            inputStr = request.form['functionInputs']
+
+            # Parse Code
+            # Grab function name
+            codeParts = code.split()
+            returnType = codeParts[0].strip() # get return type
+            codeMoreParts = codeParts[1].split('(') # removes brackets
+
+            rType = 'd'
+            # if returnType == 'string' :
+            #     rType = 's'
+
+            code = '#include <stdio.h>\n#include <stdbool.h>\n#include <string.h>\n' + code + 'int main() { printf("%' + str(rType) + '",' + codeMoreParts[0] + '(' + inputStr + "));}"
+
+        if types == 'function' and lang == 'javascript' :
+            inputStr = request.form['functionInputs']
+
+            # Parse Code
+            # Grab function name
+            codeParts = code.split()
+            codeMoreParts = codeParts[1].split('(')
+
+            code = code + 'print(' + codeMoreParts[0] + '(' + inputStr + '));'
+
         rawoutput = compileCode(code, lang)
 
-    return render_template("otherfile.html", rawoutput=rawoutput)
+    return render_template("otherfile.html", rawoutput=rawoutput, incode=code)
 
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
