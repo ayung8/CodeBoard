@@ -28,6 +28,6 @@ Currently, CodeBoard supports code written in Javascript and C. Plans to expand 
 
 
 **Examples:**  
-<p align="left"><img src="example2_res.jpg" alt="eg2"></p> <p align="right"><img src="exampleanswer_res.jpg" alt="egans"></p>
+<p align="left"><img src="example2_res.jpg" alt="eg2"></p> <p align="right"><img src="exampleanswer_res.png" alt="egans"></p>
 
 [Click here to try it out!](https://codeboard-257105.appspot.com/)
