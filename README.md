@@ -11,6 +11,8 @@ CodeBoard is hosted on Google’s App Engine and utilizes Google’s Cloud Compu
 
 The application can be used by many: students taking a picture of code scribbled in class by the professor, interviewers quickly running code that is written on the blackboard, and professors checking to see if the solution to an exam question containing 30 for-loops actually works. Evidently, there are a wide range of applications where it would be advantageous to have a quick and easy way to run code simply by taking a picture. 
 
+![](CBflowchart.png)
+
 **Technical Information**  
 
 CodeBoard leverages 2 main APIs: Google Vision and Sphere Engine. Google’s Vision API is fed pictures to analyze and parse text. With this text, CodeBoard extracts relevant information to rebuild bits and pieces of code that might have been lost in translation. Function names, return types, and arguments are all reconstructed to successfully run the code. In addition, CodeBoard validates the code before finally passing it to Sphere Engine’s Online Compiler API for execution. The utilization of both Google’s Vision API and Sphere Engine’s API streamlines the process and drastically reduces the time needed to translate code from paper to output. CodeBoard is hosted using Google’s App Engine.
