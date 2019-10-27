@@ -36,23 +36,40 @@
 		<input type="button" value="Take Snapshot" onClick="take_snapshot(); $(this).hide().prev().show();" style="display:none">
 	</form>
 
+	<label>Language:</label>
 	<select name="languages" form="codeRunner">
 		<option value="javascript">JavaScript</option>
 		<option value="c">C</option>
 		<option value="python" disabled>Python</option>
 	</select>
-	<select name="types" form="codeRunner">
-		<option value="program">Program</option>
+	
+	<label>Code Type:</label>
+	<select id="types" name="types" form="codeRunner">
+		<option selected value="program">Program</option>
 		<option value="function">Function</option>
 	</select>
 
 	<form action="/output" method="post" id="codeRunner">
-		<input type="text" name="functionInputs" value="Enter inputs here">
+		<div style='display:none' id=functionInputs>
+			<label>Function Inputs:</label>
+			<input type="text" name="functionInputs" value="" placeholder="e.g. '2, 3'">
+		</div>
 		<textarea name="codetorun" id="returnedText"></textarea>
 		<input type="submit">
 	</form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+	<script>
+	$(document).ready(function(){
+		$('#types').on('change', function() {
+			if ( this.value == 'function') {
+				$("#functionInputs").show();
+			}
+			else if (this.value == 'program') {
+				$("#functionInputs").hide();
+			}
+    	});
+	});
+	</script>
 </html>
