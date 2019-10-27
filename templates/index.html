@@ -7,6 +7,7 @@
 	 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	 <link rel="stylesheet" href="/static/styles.css" >
+	 <link href="https://fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
 
 	 <!-- Bootstrap CSS -->
 	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -25,7 +26,7 @@
 		#textInBox{color:grey;}
 		#photoButton { width: 75px !important; }
 		#returnedText{ width: 100%; height:180px; border-radius: 15px; border:1px solid rgb(228, 110, 222);}
-
+		.bold { font-weight: bold;}
 		#results { position: relative; float:center;  height: 280px; width: 400px; border-radius: 10px; border:2px solid #6E81E4; background-image: linear-gradient(#FFFF, #EAE9F6); }
 	</style>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -80,19 +81,20 @@
 		<div class="col-md-4 pb-0">
 			<img id="camera-illustration" src="/static/images/camera.svg">
 		</div>
-		<div class="col-md-4 offset-md-3">
+		<div class="col-md-5 offset-md-3">
 				<form action="/output" method="post" id="codeRunner">
-					<div id=functionInputs>
+					<div id=functionInputs class ="bold">
 						<label>Function Inputs:</label>
 						<input type="text" name="functionInputs" value="" placeholder="e.g. '2, 3'" style="font-family:Lucida Console, Monaco, monospace">
 					</div>
+					<div mt-2> Please verify the code is correct and make any changes</div>
 					<textarea name="codetorun" id="returnedText" style="font-family:Lucida Console, Monaco, monospace"></textarea>
 					<input type="submit" class="button offset-md-4">
 				</form>
 			</div>
 	</div>
 
-	
+
 
 	<div class="row">
 		<div class="col-md-1 offset-md-1 mb-2">
