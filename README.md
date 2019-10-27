@@ -2,9 +2,9 @@
 
 <p align="center"><img src="CBicon_s.png" alt="CBicon"></p>
 
-Team Members: Adrian Yung, Jessie Muir, Emily Wang, Vincent Borja
+[**Try it out!**](https://codeboard-257105.appspot.com/)
 
-[Github](https://github.com/ayung8/CodeBoard) | Slide Deck
+Team Members: Adrian Yung, Jessie Muir, Emily Wang, Vincent Borja
 
 **Summary**  
 
@@ -30,5 +30,3 @@ Currently, CodeBoard supports code written in Javascript and C. Plans to expand 
 **Examples:**  
 <p align="left"><img src="example2_res.jpg" alt="eg2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="example1_res.jpg" alt="eg1"></p>
 <p align="right"><img src="exampleanswer_res.png" alt="egans"></p>
-
-->[**Click here to try it out!**](https://codeboard-257105.appspot.com/)<-
