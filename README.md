@@ -31,4 +31,4 @@ Currently, CodeBoard supports code written in Javascript and C. Plans to expand 
 <p align="left"><img src="example2_res.jpg" alt="eg2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="example1_res.jpg" alt="eg1"></p>
 <p align="right"><img src="exampleanswer_res.png" alt="egans"></p>
 
-<p align="center">[**Click here to try it out!**](https://codeboard-257105.appspot.com/)</p>
+<p align="center">[Click here to try it out!](https://codeboard-257105.appspot.com/)</p>
