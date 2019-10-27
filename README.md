@@ -11,7 +11,7 @@ CodeBoard is hosted on Google’s App Engine and utilizes Google’s Cloud Compu
 
 The application can be used by many: students taking a picture of code scribbled in class by the professor, interviewers quickly running code that is written on the blackboard, and professors checking to see if the solution to an exam question containing 30 for-loops actually works. Evidently, there are a wide range of applications where it would be advantageous to have a quick and easy way to run code simply by taking a picture. 
 
-![](CBflowchart.png | width=20)
+<img src="CBflowchart.png" alt="CBflowchart" style="width:430px;height:387px;">
 
 **Technical Information**  
 
