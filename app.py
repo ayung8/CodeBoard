@@ -158,8 +158,8 @@ def getOutput():
             codeMoreParts = codeParts[1].split('(') # removes brackets
 
             rType = 'd'
-            if returnType == 'string' :
-                rType = 's'
+            # if returnType == 'string' :
+            #     rType = 's'
 
             code = '#include <stdio.h>\n#include <stdbool.h>\n#include <string.h>\n' + code + 'int main() { printf("%' + str(rType) + '",' + codeMoreParts[0] + '(' + inputStr + "));}"
 
