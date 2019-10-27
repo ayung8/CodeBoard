@@ -41,8 +41,13 @@
 		<option value="c">C</option>
 		<option value="python" disabled>Python</option>
 	</select>
+	<select name="types" form="codeRunner">
+		<option value="function">Function</option>
+		<option value="program">Program</option>
+	</select>
 
 	<form action="/output" method="post" id="codeRunner">
+		<input type="text" name="functionInputs" value="Enter inputs here">
 		<textarea name="codetorun" id="returnedText"></textarea>
 		<input type="submit">
 	</form>
