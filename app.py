@@ -15,7 +15,7 @@ import time
 
 app = Flask(__name__)
 
-def compileCode(code, language = "javascript") :
+def compileCode(code, language = "javascript", types = "program", inputStr="") :
     # define access parameters
     accessToken = '77501c36922866a03b1822b4508a50c6'
     endpoint = 'dd57039c.compilers.sphere-engine.com'
@@ -31,9 +31,13 @@ def compileCode(code, language = "javascript") :
         compiler = 116  # Python
 
     elif language == "c" :
-        # source = 'some c Code' # C
-        source = '' + str(code)
-        compiler = 11  # C
+
+        if types == 'function':
+            source = '#include <stdio.h>' + code + 'int main() { printf("%d", func(' + inputStr + "));"
+
+        else :
+            source = '' + str(code)
+            compiler = 11  # C
 
     elif language == "javascript":
         # source = 'function f() {return "hello"; } print(f());' # Javascript
@@ -45,7 +49,7 @@ def compileCode(code, language = "javascript") :
         source = '' + str(code)
         compiler = 112 # Javascript
 
-    input = '2017'
+    input = 'none'
 
     # Set default value for response
     response = None
@@ -145,12 +149,16 @@ def getOutput():
     if request.method == 'POST':
         code = request.form['codetorun']
         lang = request.form['languages']
+        types = request.form['types']
+
+        if types == 'function' :
+            rawoutput = compileCode(code, lang, types)
 
         # Call function to get raw output
-        #rawoutput = compileCode(code)
-        rawoutput = compileCode(code, lang)
+        else :
+            rawoutput = compileCode(code, lang)
 
-    return render_template("otherfile.html", rawoutput=rawoutput)
+    return render_template("otherfile.html", rawoutput=rawoutput, incode=code)
 
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
