@@ -15,7 +15,7 @@ import time
 
 app = Flask(__name__)
 
-def compileCode(code, language = "javascript", types = "program", inputStr="") :
+def compileCode(code, language = "javascript") :
     # define access parameters
     accessToken = '77501c36922866a03b1822b4508a50c6'
     endpoint = 'dd57039c.compilers.sphere-engine.com'
@@ -32,12 +32,8 @@ def compileCode(code, language = "javascript", types = "program", inputStr="") :
 
     elif language == "c" :
 
-        if types == 'function':
-            source = '#include <stdio.h>' + code + 'int main() { printf("%d", func(' + inputStr + "));"
-
-        else :
-            source = '' + str(code)
-            compiler = 11  # C
+        source = '' + str(code)
+        compiler = 11  # C
 
     elif language == "javascript":
         # source = 'function f() {return "hello"; } print(f());' # Javascript
@@ -152,11 +148,18 @@ def getOutput():
         types = request.form['types']
 
         if types == 'function' :
-            rawoutput = compileCode(code, lang, types)
 
-        # Call function to get raw output
-        else :
-            rawoutput = compileCode(code, lang)
+            inputStr = request.form['functionInputs']
+
+            # Parse Code
+
+            # Grab function name
+            codeParts = code.split()
+            codeMoreParts = codeParts[1].split('(')
+
+            code = '#include <stdio.h>\n' + code + 'int main() { printf("%d",' + codeMoreParts[0] + '(' + inputStr + "));}"
+
+        rawoutput = compileCode(code, lang)
 
     return render_template("otherfile.html", rawoutput=rawoutput, incode=code)
 
