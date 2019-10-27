@@ -1,5 +1,7 @@
 # CodeBoard: Run Your Handwritten Code!
 
+<p align="center"><img src="CBicon.png" alt="CBicon" style="width:200px;height:139px"></p>
+
 Team Members: 
 
 [Github](https://github.com/ayung8/CodeBoard) | Slide Deck
