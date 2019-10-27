@@ -147,17 +147,26 @@ def getOutput():
         lang = request.form['languages']
         types = request.form['types']
 
-        if types == 'function' :
-
+        # Parse input if function option selected
+        if types == 'function' and lang == 'c':
             inputStr = request.form['functionInputs']
 
             # Parse Code
-
             # Grab function name
             codeParts = code.split()
             codeMoreParts = codeParts[1].split('(')
 
             code = '#include <stdio.h>\n' + code + 'int main() { printf("%d",' + codeMoreParts[0] + '(' + inputStr + "));}"
+
+        if types == 'function' and lang == 'javascript' :
+            inputStr = request.form['functionInputs']
+
+            # Parse Code
+            # Grab function name
+            codeParts = code.split()
+            codeMoreParts = codeParts[1].split('(')
+
+            code = code + 'print(' + codeMoreParts[0] + '(' + inputStr + '));'
 
         rawoutput = compileCode(code, lang)
 
