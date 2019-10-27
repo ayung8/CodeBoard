@@ -19,7 +19,6 @@ function take_snapshot() {
         img = data_uri.substr(data_uri.indexOf(',') + 1, data_uri.length);
     } );
     Webcam.reset();
-    let url = "https://vision.googleapis.com/v1/images:annotate";
     let data = {
         "requests": [
             {
