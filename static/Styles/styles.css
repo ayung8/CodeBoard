@@ -1,0 +1,51 @@
+    p, h1 {
+    font-family: 'Hind', sans-serif;
+    }
+    .img-wrapper {
+    position: relative;
+    }
+
+    .img-responsive {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 80%;
+        height: auto;
+    }
+
+    .img-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    }
+
+    .img-overlay:before {
+    content: ' ';
+    display: block;
+    /* adjust 'height' to position overlay content vertically */
+    height: 85%;
+    }
+
+    .btn-secondary{
+    background-color: #D8D8D8;
+    color: #1E1E1E;
+    border: none;
+    }
+
+    .navbar-color{
+        background-color: #DEE4FF
+    }
+
+    .button{
+        color: white;
+        height: 45px;
+        width: 125px;
+        border-radius: 15px;
+        border:1px solid #6E81E4;
+        background-image:
+        linear-gradient(#438CF1, #8F4BF5);
+
+    }
