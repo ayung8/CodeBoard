@@ -13,8 +13,7 @@ function setup() {
 function take_snapshot() {
     let img = '';
     Webcam.snap( function(data_uri) {
-        document.getElementById('results').innerHTML = 
-            '<h2>Here is your image:</h2>' + 
+        document.getElementById('results').innerHTML =
             '<img src="'+data_uri+'"/>';
         img = data_uri.substr(data_uri.indexOf(',') + 1, data_uri.length);
     } );
