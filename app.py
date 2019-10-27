@@ -134,7 +134,7 @@ def intro():
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("index.html")
 
 @app.route("/runOCR", methods=['POST'])
 def runOCR():
