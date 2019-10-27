@@ -1,13 +1,13 @@
 <html>
 <head>
 <title>
-Output HTML
+Results
 </title>
      <!-- Required meta tags -->
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-     <link rel="stylesheet" href="/static/styles.css" >
+     <link rel="stylesheet" href="../static/styles.css" >
      <!-- Bootstrap CSS -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -26,6 +26,9 @@ Output HTML
         #result{
             font-size: 28px;
             text-align: center;
+        }
+        .bold{
+            font-weight: bold;
         }
     </style>
 </head>
@@ -52,11 +55,11 @@ Output HTML
 
       <img class="center pt-2" src="/static/images/code.png">
         <p id = "result" class="pt-2">
-            Raw input is:
+           <div class="bold"> Raw input is: </div>
             {{incode}}
             <br></br>
 
-            Raw output is:
+            <div class="bold"> Raw output is: </div>
             {{rawoutput}}
         </p>
 
