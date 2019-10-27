@@ -3,15 +3,70 @@
 <title>
 Output HTML
 </title>
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <link rel="stylesheet" href="/static/Styles/styles.css" >
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script type="text/javascript" src="/static/button.js"></script>
+    <html lang="en">
+    <style type="text/css">
+        .navbar-color{
+            background-color: #D8D8D8 !important;
+        }
+        .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        }
+        #result{
+            font-size: 28px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-color navbar-light">
+            <a class="navbar-brand" href="#">CodeBoard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/index">Start</a>
+                </li>
+                </ul>
+             </div>
+     </nav>
 
-Raw input is:
-{{incode}}
-<br></br>
+      <img class="center pt-2" src="/static/images/code.png">
+        <p id = "result" class="pt-2">
+            Raw input is:
+            {{incode}}
+            <br></br>
 
-Raw output is:
-{{rawoutput}}
+            Raw output is:
+            {{rawoutput}}
+        </p>
+
+     <div class=" pr-3 offset-md-6">
+        <a href="/">
+            <button class="button">Restart</button>
+        </a>
+    </div>
+</div>
+
 
 </body>
 </html>
