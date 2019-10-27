@@ -144,11 +144,11 @@ def getOutput():
 
     if request.method == 'POST':
         code = request.form['codetorun']
-        # lang = request.form['languages']
+        lang = request.form['languages']
 
         # Call function to get raw output
-        rawoutput = compileCode(code)
-        # rawoutput = compileCode(code, lang)
+        #rawoutput = compileCode(code)
+        rawoutput = compileCode(code, lang)
 
     return render_template("otherfile.html", rawoutput=rawoutput)
 

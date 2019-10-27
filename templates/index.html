@@ -29,15 +29,13 @@
 		<input type="button" value="Take Snapshot" onClick="take_snapshot(); $(this).hide().prev().show();" style="display:none">
 	</form>
 
-	<form>
-		<select name="languages">
-			<option value="javascript">JavaScript</option>
-			<option value="python" disabled>Python</option>
-			<option value="c" disabled>C</option>
-		</select>
-	</form>
+	<select name="languages" form="codeRunner">
+		<option value="javascript">JavaScript</option>
+		<option value="python" disabled>Python</option>
+		<option value="c">C</option>
+	</select>
 
-	<form action="/output" method="post">
+	<form action="/output" method="post" id="codeRunner">
 		<textarea name="codetorun" id="returnedText"></textarea>
 		<input type="submit">
 	</form>
