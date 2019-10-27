@@ -17,18 +17,25 @@ Results
         .navbar-color{
          background-color: #D8D8D8 !important;
         }
+
         .center {
         display: block;
         margin-left: auto;
         margin-right: auto;
         width: 40%;
         }
+
         #result{
             font-size: 28px;
             text-align: center;
         }
+
         .bold{
             font-weight: bold;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%;
         }
     </style>
 </head>
@@ -56,11 +63,12 @@ Results
       <img class="center pt-2" src="/static/images/code.png">
         <p id = "result" class="pt-2">
            <div class="bold"> Raw input is: </div>
-            {{incode}}
+
+           <div class="center"> {{incode}} </div>
             <br></br>
 
             <div class="bold"> Raw output is: </div>
-            {{rawoutput}}
+            <div class="center"> {{rawoutput}} </div>
         </p>
 
      <div class=" pl-3 offset-md-5">
