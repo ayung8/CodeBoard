@@ -156,7 +156,7 @@ def getOutput():
             codeParts = code.split()
             codeMoreParts = codeParts[1].split('(')
 
-            code = '#include <stdio.h>\n' + code + 'int main() { printf("%d",' + codeMoreParts[0] + '(' + inputStr + "));}"
+            code = '#include <stdio.h>\n#include <stdbool.h>\n#include <string.h>\n' + code + 'int main() { printf("%d",' + codeMoreParts[0] + '(' + inputStr + "));}"
 
         if types == 'function' and lang == 'javascript' :
             inputStr = request.form['functionInputs']
