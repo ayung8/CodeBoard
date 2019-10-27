@@ -2,7 +2,7 @@
 
 <p align="center"><img src="CBicon_s.png" alt="CBicon"></p>
 
-Team Members: 
+Team Members: Adrian Yung, Jessie Muir, Emily Wang, Vincent Borja
 
 [Github](https://github.com/ayung8/CodeBoard) | Slide Deck
 
