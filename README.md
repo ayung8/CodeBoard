@@ -1,6 +1,6 @@
 # CodeBoard: Run Your Handwritten Code!
 
-<p align="center"><img src="CBicon.png" alt="CBicon" style="width:200px;height:139px"></p>
+<p align="center"><img src="CBicon_s.png" alt="CBicon"></p>
 
 Team Members: 
 
