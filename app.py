@@ -138,12 +138,12 @@ def about():
 
 @app.route("/runOCR", methods=['POST'])
 def runOCR():
-    GOOGLE_APPLICATION_CREDENTIALS = './key/CodeBoard-eb1f5c042ada.json' # temp
-    credentials = service_account.Credentials.from_service_account_file(GOOGLE_APPLICATION_CREDENTIALS)#temp
+    #GOOGLE_APPLICATION_CREDENTIALS = './key/CodeBoard-eb1f5c042ada.json' # temp
+    #credentials = service_account.Credentials.from_service_account_file(GOOGLE_APPLICATION_CREDENTIALS)#temp
 
     content = json.loads(request.form['data'])['requests'][0]['image']['content']
-    client = vision.ImageAnnotatorClient(credentials=credentials) # temp
-    #client = vision.ImageAnnotatorClient()
+    #client = vision.ImageAnnotatorClient(credentials=credentials) # temp
+    client = vision.ImageAnnotatorClient()
     image = types.Image(content = base64.b64decode(content))
     response = client.document_text_detection(image=image)
     if (len(response.text_annotations) < 1):
