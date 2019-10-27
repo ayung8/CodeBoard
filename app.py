@@ -154,9 +154,14 @@ def getOutput():
             # Parse Code
             # Grab function name
             codeParts = code.split()
-            codeMoreParts = codeParts[1].split('(')
+            returnType = codeParts[0].strip() # get return type
+            codeMoreParts = codeParts[1].split('(') # removes brackets
 
-            code = '#include <stdio.h>\n#include <stdbool.h>\n#include <string.h>\n' + code + 'int main() { printf("%d",' + codeMoreParts[0] + '(' + inputStr + "));}"
+            rType = 'd'
+            if returnType == 'string' :
+                rType = 's'
+
+            code = '#include <stdio.h>\n#include <stdbool.h>\n#include <string.h>\n' + code + 'int main() { printf("%' + str(rType) + '",' + codeMoreParts[0] + '(' + inputStr + "));}"
 
         if types == 'function' and lang == 'javascript' :
             inputStr = request.form['functionInputs']
