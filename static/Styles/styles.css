@@ -50,3 +50,8 @@
         linear-gradient(#438CF1, #8F4BF5);
 
     }
+
+    .navbar-brand{
+        font-weight: bold;
+        color: #6C63FF;
+    }
